@@ -102,7 +102,7 @@ crash.*.log
 # password, private keys, and other secrets. These should not be part of version 
 # control as they are data points which are potentially sensitive and subject 
 # to change depending on the environment.
-*.tfvars
+# *.tfvars
 *.tfvars.json
 *.terraform.lock.hcl
 
@@ -127,4 +127,5 @@ override.tf.json
 terraform.rc
 
 tfplan
+tfplan.json
 azurek8s

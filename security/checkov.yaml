@@ -1,0 +1,26 @@
+# security/checkov.yaml
+
+quiet: false
+compact: true
+framework:
+  - terraform_plan
+
+download-external-modules: true
+
+# Fail the build only on MEDIUM / HIGH / CRITICAL
+hard-fail-on:
+  - MEDIUM
+  - HIGH
+  - CRITICAL
+
+# Optional: allow LOW to be reported but not fail
+soft-fail-on:
+  - LOW
+
+# Output configuration
+output:
+  - cli
+
+# Skip known noisy checks (example)
+skip-check:
+#  - CKV_TF_1   # Ensure Terraform version is pinned

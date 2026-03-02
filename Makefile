@@ -1,46 +1,117 @@
-# Exporta todas las variables definidas en el Makefile
+# ============================================
+# 🚀 Terraform + DevSecOps Makefile
+# ============================================
+
 .EXPORT_ALL_VARIABLES:
 
-# Variables globales
+# -------- Global variables --------
 AWS_PROFILE ?= scc-aws
+ENV ?= dev
 
-# HOW TO EXECUTE:
-# - Ejecutar PLAN: make tf-plan env=dev
-# - Ejecutar APPLY: make tf-apply env=dev
-# - Ejecutar DESTROY: make tf-destroy env=dev
+TFVARS := $(ENV).tfvars
+TFPLAN := tfplan
+TFPLAN_JSON := tfplan.json
 
-.PHONY: clean tf-init tf-plan tf-apply tf-destroy tf-output
+PROJECT_NAME := aws-s3-presigned-url
+SEC_DIR := security
 
-# Limpia los archivos generados
+TERRAFORM := terraform
+
+# -------- Help --------
+.PHONY: help
+help:
+	@echo "📘 Available commands"
+	@echo ""
+	@echo "🌱 Infrastructure"
+	@echo "  make tf-init        Initialize Terraform"
+	@echo "  make tf-plan        Terraform plan (ENV=$(ENV))"
+	@echo "  make tf-apply       Apply Terraform"
+	@echo "  make tf-destroy     Destroy infrastructure"
+	@echo ""
+	@echo "🔐 Security / DevSecOps"
+	@echo "  make sec-iac        Scan Terraform PLAN with Checkov"
+	@echo "  make sec-fs         Scan repository with Trivy"
+	@echo "  make sec-all        Run all security scans"
+	@echo ""
+	@echo "💰 FinOps"
+	@echo "  make infracost      Cost breakdown"
+	@echo "  make infracost-html Cost report (HTML)"
+	@echo ""
+	@echo "🧹 Utilities"
+	@echo "  make clean          Cleanup local files"
+
+# -------- Validation --------
+.PHONY: check-env
+check-env:
+	@if [ ! -f "$(TFVARS)" ]; then \
+		echo "❌ Missing tfvars file: $(TFVARS)"; \
+		exit 1; \
+	fi
+
+# -------- Clean --------
+.PHONY: clean
 clean:
-	rm -rf .terraform tfplan
+	@echo "🧹 Cleaning workspace..."
+	rm -rf .terraform .terraform.lock.hcl \
+		$(TFPLAN) $(TFPLAN_JSON)
 
-# Inicializa Terraform y valida la configuración
+# -------- Terraform --------
+.PHONY: tf-init
 tf-init:
-	terraform init -reconfigure -upgrade
-	terraform validate
+	@echo "🌱 Terraform init (ENV=$(ENV))"
+	$(TERRAFORM) init -reconfigure -upgrade
+	$(TERRAFORM) validate
 
-# Ejecuta plan, valida y formatea el código
-tf-plan: tf-init
-	terraform fmt --recursive
-	terraform plan -var-file *.tfvars -out=tfplan
+.PHONY: tf-plan
+tf-plan: check-env tf-init
+	@echo "🧪 Terraform plan (ENV=$(ENV))"
+	$(TERRAFORM) fmt --recursive
+	$(TERRAFORM) plan -var-file=$(TFVARS) -out=$(TFPLAN)
 
-# Aplica el plan generado
+.PHONY: tf-plan-json
+tf-plan-json: tf-plan
+	@echo "📄 Exporting Terraform plan to JSON"
+	$(TERRAFORM) show -json $(TFPLAN) > $(TFPLAN_JSON)
+
+.PHONY: tf-apply
 tf-apply:
-	terraform apply -auto-approve -input=false tfplan
+	@echo "🚀 Terraform apply"
+	$(TERRAFORM) apply -auto-approve -input=false $(TFPLAN)
 
-# Destruye los recursos creados
-tf-destroy:
-	@terraform destroy -var-file *.tfvars -auto-approve
+.PHONY: tf-destroy
+tf-destroy: check-env
+	@echo "💣 Terraform destroy (ENV=$(ENV))"
+	$(TERRAFORM) destroy -var-file=$(TFVARS) -auto-approve
 
-# Muestra los outputs de Terraform
-tf-output:
-	@terraform output
+# -------- Security: Checkov (Terraform PLAN) --------
+.PHONY: sec-iac
+sec-iac: tf-plan-json
+	@echo "🔐 Running Checkov scan on Terraform PLAN"
+	checkov \
+		--framework terraform_plan \
+		--config-file $(SEC_DIR)/checkov.yaml \
+		-f $(TFPLAN_JSON)
 
-# Genera un reporte de costos con Infracost
+# -------- Security: Trivy (Filesystem / Node.js) --------
+.PHONY: sec-fs
+sec-fs:
+	@echo "🛡️ Running Trivy filesystem scan"
+	trivy fs . \
+		--config $(SEC_DIR)/trivy.yaml
+
+# -------- Security: All --------
+.PHONY: sec-all
+sec-all: sec-iac sec-fs
+	@echo "✅ All DevSecOps security scans completed"
+
+# -------- FinOps --------
+.PHONY: infracost
 infracost: tf-plan
-	infracost breakdown --path tfplan
+	@echo "💰 Infracost breakdown"
+	infracost breakdown --path $(TFPLAN)
 
-# Genera un reporte de costos con Infracost HTML
+.PHONY: infracost-html
 infracost-html: tf-plan
-	infracost breakdown --path . --format html > cost-report.html | open -a "Google Chrome" cost-report.html
+	@echo "📊 Infracost HTML report"
+	infracost breakdown --path . --format html > cost-report.html
+	open cost-report.html
