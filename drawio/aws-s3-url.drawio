@@ -1,16 +1,19 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
   <diagram name="Page-1" id="zkJAEx4AKZIBYiJ50GoG">
-    <mxGraphModel dx="2866" dy="676" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#000000" math="0" shadow="0">
+    <mxGraphModel dx="2225" dy="342" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#000000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="TZMNqrunqEL7goSB41xx-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" value="" vertex="1">
-          <mxGeometry height="721" width="972" x="-453" y="426" as="geometry" />
+          <mxGeometry height="721" width="986" x="-467" y="426" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;opacity=20;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="174" width="462" x="-71" y="886" as="geometry" />
         </mxCell>
         <mxCell id="TZMNqrunqEL7goSB41xx-8" parent="1" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;container=0;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#FFFFFF;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#FFFFFF;dashed=0;" value="AWS Cloud" vertex="1">
-          <mxGeometry height="566" width="603" x="-118" y="513" as="geometry" />
+          <mxGeometry height="566" width="593" x="-118" y="513" as="geometry" />
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-23" edge="1" parent="1" source="TZMNqrunqEL7goSB41xx-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#33FF33;strokeWidth=2;flowAnimation=1;" target="TZMNqrunqEL7goSB41xx-5">
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-4" edge="1" parent="1" source="TZMNqrunqEL7goSB41xx-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#00FF00;flowAnimation=1;" target="o4WVxJvnl1IG4fS5fv5g-2">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="-389" y="961" />
@@ -28,9 +31,9 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-15" connectable="0" parent="TZMNqrunqEL7goSB41xx-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="1. Request Object&lt;div&gt;upload&lt;/div&gt;" vertex="1">
+        <mxCell id="TZMNqrunqEL7goSB41xx-15" connectable="0" parent="TZMNqrunqEL7goSB41xx-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="3. Request S3 presigned URL:&lt;div&gt;File type (MIME)&lt;/div&gt;&lt;div&gt;MD5 in base64&lt;/div&gt;" vertex="1">
           <mxGeometry relative="1" x="0.2341" y="1" as="geometry">
-            <mxPoint x="24" y="-26" as="offset" />
+            <mxPoint x="21" y="-34" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="TZMNqrunqEL7goSB41xx-14" edge="1" parent="1" source="TZMNqrunqEL7goSB41xx-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#007FFF;strokeWidth=2;flowAnimation=1;" target="TZMNqrunqEL7goSB41xx-7">
@@ -46,9 +49,6 @@
         </mxCell>
         <mxCell id="TZMNqrunqEL7goSB41xx-6" parent="1" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.android;fillColor=#8CC64F;gradientColor=none;fontColor=#FFFFFF;fontStyle=1" value="SDK" vertex="1">
           <mxGeometry height="84" width="73.5" x="280.25" y="763" as="geometry" />
-        </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-5" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#FFFFFF;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" value="S3&lt;div&gt;FILES CONTENT&lt;/div&gt;" vertex="1">
-          <mxGeometry height="78" width="78" x="278" y="922" as="geometry" />
         </mxCell>
         <mxCell id="TZMNqrunqEL7goSB41xx-12" edge="1" parent="1" source="TZMNqrunqEL7goSB41xx-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#007FFF;strokeWidth=2;flowAnimation=1;" target="TZMNqrunqEL7goSB41xx-3">
           <mxGeometry relative="1" as="geometry" />
@@ -78,23 +78,64 @@
         <mxCell id="TZMNqrunqEL7goSB41xx-16" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="6. Response presigned URL" vertex="1">
           <mxGeometry x="-217" y="698" as="geometry" />
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-17" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="2. Pass the request to Lambda" vertex="1">
+        <mxCell id="TZMNqrunqEL7goSB41xx-17" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="4. Pass the request to Lambda" vertex="1">
           <mxGeometry x="150" y="622" as="geometry" />
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-18" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="5. Return the response" vertex="1">
+        <mxCell id="TZMNqrunqEL7goSB41xx-18" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="7. Return the response" vertex="1">
           <mxGeometry x="150" y="700" as="geometry" />
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-21" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="3. Get Signed URL" vertex="1">
+        <mxCell id="TZMNqrunqEL7goSB41xx-21" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="5. Get Signed URL" vertex="1">
           <mxGeometry x="403" y="733" as="geometry" />
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-22" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="4. Generate&lt;div&gt;presigned URL&lt;/div&gt;" vertex="1">
-          <mxGeometry x="241" y="743" as="geometry" />
+        <mxCell id="TZMNqrunqEL7goSB41xx-22" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="6. Generate&lt;div&gt;presigned URL&lt;/div&gt;&lt;div&gt;with MD5 embedded&lt;/div&gt;&lt;div&gt;in URL&lt;/div&gt;" vertex="1">
+          <mxGeometry x="224" y="763" as="geometry" />
         </mxCell>
-        <mxCell id="TZMNqrunqEL7goSB41xx-24" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="7. Upload Object" vertex="1">
+        <mxCell id="TZMNqrunqEL7goSB41xx-24" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="9. Upload Object" vertex="1">
           <mxGeometry x="-250" y="978" as="geometry" />
         </mxCell>
         <mxCell id="TZMNqrunqEL7goSB41xx-28" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;labelBackgroundColor=none;" value="&lt;h1 class=&quot;fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-2 spec-article__title&quot; style=&quot;box-sizing: border-box; margin: 0px 0px 8px; line-height: 1.25; font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, Roboto, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 25px; color: rgb(255, 255, 255);&quot;&gt;Building a Secure Serverless Upload Pattern on AWS with Terraform 🚀&lt;/font&gt;&lt;/h1&gt;" vertex="1">
           <mxGeometry height="30" width="826" x="-356" y="447" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-7" edge="1" parent="1" source="o4WVxJvnl1IG4fS5fv5g-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;dashed=1;strokeColor=#FF0000;" target="TZMNqrunqEL7goSB41xx-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="143" y="835" />
+              <mxPoint x="-368" y="835" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-8" connectable="0" parent="o4WVxJvnl1IG4fS5fv5g-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1;labelBackgroundColor=none;fontColor=#FFFFFF;" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;NO&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.8311" y="-3" as="geometry">
+            <mxPoint x="-3" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;MD5&lt;/b&gt;&lt;div&gt;&lt;b&gt;Match?&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="103" y="921" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-3" edge="1" parent="1" source="o4WVxJvnl1IG4fS5fv5g-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;strokeColor=#00FF00;flowAnimation=1;" target="TZMNqrunqEL7goSB41xx-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-9" connectable="0" parent="o4WVxJvnl1IG4fS5fv5g-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" value="&lt;b&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;YES&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.206" y="-1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TZMNqrunqEL7goSB41xx-5" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#FFFFFF;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" value="S3&lt;div&gt;FILES CONTENT&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="78" x="278" y="922" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-10" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="10. S3 checks object&lt;div&gt;integrity by calculating&lt;/div&gt;&lt;div&gt;MD5 digest&lt;/div&gt;" vertex="1">
+          <mxGeometry x="-275" y="981" as="geometry">
+            <mxPoint x="288" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-11" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="11. Files is rejected" vertex="1">
+          <mxGeometry x="-213" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-12" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="1. Load file for upload in browser" vertex="1">
+          <mxGeometry x="-356" y="531" as="geometry" />
+        </mxCell>
+        <mxCell id="o4WVxJvnl1IG4fS5fv5g-13" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;labelBackgroundColor=none;fontStyle=1;fontSize=13;" value="2. Browser calculates MD5 hash" vertex="1">
+          <mxGeometry x="-358" y="559" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
