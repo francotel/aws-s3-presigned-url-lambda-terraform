@@ -32,11 +32,9 @@ module "lambda_s3_presigned" {
   # Environment variables
   ################################
   environment_variables = {
-    BUCKET_NAME        = module.s3_bucket.s3_bucket_id
-    URL_EXPIRATION     = "300" # seconds
-    REQUIRE_TLS        = "true"
-    REQUIRE_ENCRYPTION = "true"
-    DRY_RUN            = "false"
+    BUCKET_NAME     = module.s3_bucket.s3_bucket_id
+    URL_EXPIRATION  = "300" # seconds
+    AWS_REGION_NAME = local.aws-region
   }
 
   ################################
@@ -59,12 +57,13 @@ module "lambda_s3_presigned" {
   ################################
   # Triggers (API Gateway)
   ################################
-  allowed_triggers = {
-    api_gateway = {
-      principal    = "apigateway.amazonaws.com"
-      statement_id = "AllowExecutionFromAPIGateway"
-    }
-  }
+  #   allowed_triggers = {
+  #     api_gateway_any = {
+  #       service    = "apigateway"
+  #       source_arn = "${module.api_gateway.api_execution_arn}/*/*/*"
+  #     }
+
+  #   }
 
   ################################
   # IAM inline policies
