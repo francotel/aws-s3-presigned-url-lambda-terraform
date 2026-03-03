@@ -96,7 +96,7 @@ sec-iac: tf-plan-json
 .PHONY: sec-fs
 sec-fs:
 	@echo "🛡️ Running Trivy filesystem scan"
-	trivy fs . \
+	trivy fs ./src \
 		--config $(SEC_DIR)/trivy.yaml
 
 # -------- Security: All --------

@@ -129,3 +129,4 @@ terraform.rc
 tfplan
 tfplan.json
 azurek8s
+*.zip

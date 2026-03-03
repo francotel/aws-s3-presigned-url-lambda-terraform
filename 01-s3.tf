@@ -1,3 +1,12 @@
+locals {
+  s3_specific_tags = {
+    Service         = "Storage"
+    DataType        = "Logs"
+    Compliance      = "Config"
+    Confidentiality = "Internal"
+  }
+}
+
 module "s3_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "5.10.0"
@@ -26,4 +35,23 @@ module "s3_bucket" {
       }
     }
   }
+
+  cors_rule = [
+    {
+      allowed_methods = ["GET", "PUT", "POST", "DELETE"]
+      allowed_origins = ["*"]
+      allowed_headers = ["*"]
+      expose_headers  = ["ETag"]
+      max_age_seconds = 3000
+    }
+  ]
+
+  tags = merge(
+    local.common_tags,
+    local.s3_specific_tags
+  )
+}
+
+output "s3" {
+  value = module.s3_bucket
 }

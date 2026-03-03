@@ -15,10 +15,12 @@ scan:
     - vuln
     - misconfig
     - secret
+  skip-dirs:
+    - .terraform
+    - node_modules
 
-vulnerability:
+pkg:
   type:
-    - os
     - library
 
 format: table
