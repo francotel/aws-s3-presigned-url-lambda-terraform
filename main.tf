@@ -7,7 +7,7 @@ locals {
 }
 
 locals {
-  common_tags = {
+  common-tags = {
     Environment      = var.env
     Project          = var.project-name
     Owner            = var.owner
@@ -20,7 +20,7 @@ locals {
 data "template_file" "client_html" {
   template = file("./client/index.html.tpl")
   vars = {
-    api_gateway_url = module.api_gateway.api_endpoint
+    api_gateway_url = "${aws_api_gateway_stage.this.invoke_url}/presigned-url"
   }
 }
 

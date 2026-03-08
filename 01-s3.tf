@@ -1,5 +1,5 @@
 locals {
-  s3_specific_tags = {
+  s3-specific-tags = {
     Service         = "Storage"
     DataType        = "Logs"
     Compliance      = "Config"
@@ -15,7 +15,9 @@ module "s3_bucket" {
 
   force_destroy = var.s3-force-destroy
 
+  ################################
   # Security best practices
+  ################################
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
@@ -24,34 +26,42 @@ module "s3_bucket" {
   control_object_ownership = true
   object_ownership         = "BucketOwnerEnforced"
 
+  ################################
+  # Versioning
+  ################################
   versioning = {
-    enabled = false
+    enabled = var.s3-versioning-enabled
   }
 
+  ################################
+  # Encryption
+  ################################
   server_side_encryption_configuration = {
     rule = {
       apply_server_side_encryption_by_default = {
-        sse_algorithm = "AES256"
+        sse_algorithm = var.s3-encryption-algorithm
       }
     }
   }
 
+  ################################
+  # CORS
+  ################################
   cors_rule = [
     {
-      allowed_methods = ["GET", "PUT", "POST", "DELETE"]
-      allowed_origins = ["*"]
-      allowed_headers = ["*"]
-      expose_headers  = ["ETag"]
-      max_age_seconds = 3000
+      allowed_methods = var.s3-cors-allowed-methods
+      allowed_origins = var.s3-cors-allowed-origins
+      allowed_headers = var.s3-cors-allowed-headers
+      expose_headers  = var.s3-cors-expose-headers
+      max_age_seconds = var.s3-cors-max-age-seconds
     }
   ]
 
+  ################################
+  # Tags
+  ################################
   tags = merge(
-    local.common_tags,
-    local.s3_specific_tags
+    local.common-tags,
+    local.s3-specific-tags
   )
-}
-
-output "s3" {
-  value = module.s3_bucket
 }
